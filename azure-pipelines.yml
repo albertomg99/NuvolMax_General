@@ -1,0 +1,22 @@
+trigger:
+- none
+
+name: Deploy Bicep files
+
+variables:
+  vmImageName: 'ubuntu-latest'
+  azureServiceConnection: 'prueba2'
+  location: 'WestEurope'
+  templateFile: 'main.bsc.bicep'
+  ResourceGroupName: 'deployment'
+pool:
+  vmImage: $(vmImageName)
+
+steps:
+          - task: AzureCLI@2
+            displayName: 'deploy bicep template'
+            inputs:
+              azureSubscription: 'prueba2'
+              scriptType: 'pscore'
+              scriptLocation: 'inlineScript'
+              inlineScript: az deployment sub create --location $(location) --template-file main.bsc.bicep --parameters main.parameters.json

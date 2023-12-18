@@ -1,0 +1,317 @@
+{
+    
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "parLocation": {
+        "value": "northeurope"
+    },
+    "rg_p_hub_networking_01_name": {
+        "value": "rg-s-hub-networking-01"
+    },
+    "parTagsHub": {
+      "value": {
+        "cor-aut-delete" : "true"
+        }
+        
+    },
+   
+    "rg_p_spk_networking_01_name": {
+      "value": "rg-s-spk-networking-01"
+   },
+    "parTagsSpk": {
+        "value": {
+        "cor-aut-delete" : "true"
+        }
+      
+ },
+
+    "rg_p_log_analitics_01_name": {
+      "value": "rg-s-monitoring-01"
+  },
+    "parTagsLogAnalitics": {
+       "value": {
+        "cor-aut-delete" : "true"
+    }
+  
+},
+
+    "parTagsLarule01": {
+        "value": {
+        "cor-ctx-porpuse": "Alert Rule Log Analytics para ver si el valor de % free space baja del 25",
+        "cor-aut-delete" : "true"
+        }
+
+},
+
+      "parTagsLarule02": {
+        "value": {
+        "cor-ctx-porpuse": "Alert Rule Log Analytics para ver si el % available memory es menor que 10",
+        "cor-aut-delete" : "true"
+      }
+
+},
+
+      "tier1MgmtGroups": {
+        "value": [
+          {
+            "id": "NuvolMax",
+            "displayName": "NuvolMax"
+          }
+        ]
+      },
+      "tier2MgmtGroups": {
+        "value": [
+          {
+            "id": "Mg-Platform",
+            "displayName": "Mg-Platform",
+            "parentId": "NuvolMax"
+          },
+          {
+            "id": "Mg-LandingZones",
+            "displayName": "Mg-LandingZones",
+            "parentId": "NuvolMax"
+          },
+          {
+            "id": "Mg-Decommissioned",
+            "displayName": "Mg-Decommissioned",
+            "parentId": "NuvolMax"
+          },
+          {
+            "id": "Mg-Sandbox",
+            "displayName": "Mg-Sandbox",
+            "parentId": "NuvolMax"
+          }
+        ]
+      },
+      "tier3MgmtGroups": {
+         "value": [
+          {
+            "id": "Mg-Identity",
+            "displayName": "Mg-Identity",
+            "parentId": "Mg-Platform"
+          },
+          {
+            "id": "Mg-Management",
+            "displayName": "Mg-Management",
+            "parentId": "Mg-Platform"
+          },
+          {
+            "id": "Mg-Conectivity",
+            "displayName": "Mg-Conectivity",
+            "parentId": "Mg-Platform"
+          },
+          {
+            "id": "Mg-Online",
+            "displayName": "Mg-Online",
+            "parentId": "Mg-LandingZones"
+          }          
+        ]
+      },
+  
+      "authForNewMG": {
+        "value": true
+      },
+      "defaultMgId": {
+        "value": "MG-DEV-PRO"
+      },
+      "configMGSettings": {
+        "value": true
+      },
+
+      "subscripcionid": {
+        "value": "e8aed54c-06b7-4b50-a208-3e3e5b10851e"
+      },
+
+
+      "parHubNetworkName": {
+        "value": "vnet-azneu-s-coreinfra-hub-01"
+      },
+      "parHubNetworkAddressPrefix": {
+        "value": "10.20.0.0/16"
+      },
+      "parSubnetshub": {
+        "value": [
+          {
+            "name": "AzureBastionSubnet",
+            "ipAddressRange": "10.20.0.0/24"
+          },
+          {
+            "name": "GatewaySubnet",
+            "ipAddressRange": "10.20.254.0/24"
+          },
+          {
+            "name": "AzureFirewallSubnet",
+            "ipAddressRange": "10.20.255.0/24"
+          }
+        ]
+      },
+
+      "parDnsServerIpsHub": {
+        "value": []
+      },
+      "parPublicIpSku": {
+        "value": "Standard"
+      },
+      "parAzBastionEnabled": {
+        "value": true
+      },
+      "parAzBastionName": {
+        "value": "bast-azneu-s-coreinfra-bastion-01"
+      },
+      "parAzBastionSku": {
+        "value": "Standard"
+      },
+      "parAzBastionNsgName": {
+        "value": "NSG-AzureBastionSubnet"
+      },
+      "parDdosEnabled": {
+        "value": false
+      },
+      "parDdosPlanName": {
+        "value": "Ddos-azneu-s-coreinfra-plan-01"
+      },
+      "parAzFirewallEnabled": {
+        "value": false
+      },
+      "parAzFirewallName": {
+        "value": "fw-azneu-s-coreinfra-hub-01"
+      },
+      "parAzFirewallPoliciesName": {
+        "value": "fw-azneu-s-coreinfra-policies-01"
+      },
+      "parAzFirewallTier": {
+        "value": "Standard"
+      },
+      "parAzFirewallAvailabilityZones": {
+        "value": []
+      },
+      "parAzFirewallDnsProxyEnabled": {
+        "value": false
+      },
+      "parHubRouteTableName": {
+        "value": "rt-azneu-s-coreinfra-hub-01"
+      },
+      "parDisableBgpRoutePropagation": {
+        "value": false
+      },
+                  
+      "parVpnGatewayConfig": {
+        "value": { }
+      },
+
+      "parDdosProtectionPlanId": {
+        "value": ""
+      },
+      "parSpokeNetworkAddressPrefix": {
+        "value": "10.0.0.0/24"
+     },
+     "parSubnetsspk": {
+      "value": [
+        {
+          "name": "snet-azneu-s-front",
+          "ipAddressRange": "10.0.1.0/24"
+        },
+        {
+          "name": "snet-azneu-s-back",
+          "ipAddressRange": "10.0.2.0/24"
+        }
+
+      ]
+    },
+    "parSpokeNetworkName": {
+        "value": "vnet-azneu-s-coreinfra-spk-01"
+      },
+      "parDnsServerIpsSpk": {
+        "value": []
+      },
+
+      "parSpokeToHubRouteTableName": {
+        "value": "rt-azneu-s-coreinfra-spk-01"
+      },
+
+
+      "parSourceVirtualNetworkName": {
+        "value": "vnet-azneu-s-coreinfra-spk-01"
+      },
+      "parDestinationVirtualNetworkName": {
+        "value": "vnet-azneu-s-coreinfra-hub-01"
+      },
+      "parAllowVirtualNetworkAccess": {
+        "value": true
+      },
+      "parAllowForwardedTraffic": {
+        "value": true
+      },
+      "parAllowGatewayTransit": {
+        "value": false
+      },
+      "parUseRemoteGateways": {
+        "value": false
+      },
+
+      "policy01": {
+        "value": 
+          {
+            "name": "azneu-s-pol-01-restags",
+            "definitionId": "/providers/Microsoft.Authorization/policyDefinitions/2a0e14a6-b0a6-4fab-991a-187a4f81c498",
+            "description": "Anexa la etiqueta y el valor especificados cuando se crea o actualiza algún recurso al que le falta esta etiqueta. No modifica las etiquetas de los recursos creados antes de que se aplicara esta directiva hasta que se cambien dichos recursos. No se aplica a los grupos de recursos. Hay disponibles nuevas directivas con efectos 'modify' que admiten la corrección de etiquetas en los recursos existentes (consulte https://aka.ms/modifydoc).",
+            "displayName": "Anexar una etiqueta y su valor a los recursos"
+          }
+        
+      },
+
+      "policy02": {
+        "value": 
+          {
+            "name": "azneu-s-pol-02-sqltls",
+            "definitionId": "/providers/Microsoft.Authorization/policyDefinitions/32e6bbec-16b6-44c2-be37-c5b672d103cf",
+            "description": "Establecer la versión de TLS en 1.2 o posterior mejora la seguridad, ya que garantiza que solo se puede acceder a Azure SQL Database desde clientes que usen TLS 1.2 o posterior. No se recomienda usar versiones de TLS inferiores a 1.2 porque tienen vulnerabilidades de seguridad bien documentadas.",
+            "displayName": "Azure SQL Database debe ejecutar TLS versión 1.2 o posterior"
+          }
+        
+     },
+
+      "policy03": {
+        "value": 
+          {
+            "name": "azneu-s-pol-03-resLocationsAllowed",
+            "definitionId": "/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c",
+            "description": "Esta directiva le permite restringir las ubicaciones que su organización puede especificar al implementar los recursos. Use esta opción para exigir los requisitos de cumplimiento geográfico. Excluye los grupos de recursos, los elementos Microsoft.AzureActiveDirectory/b2cDirectories y los recursos que usan la región global",
+            "displayName": "Ubicaciones permitidas para desplegar recursos"
+           
+            
+          }
+               
+      },
+
+      "allowedlocations": {
+        "value": []
+      },
+
+      "parlaWorkspace_name": {
+        "value": "azneu-s-loganalitics-worksapace-01"
+      },
+
+
+
+       "laalertrule01": {
+        "value": 
+          {
+            "name": "sneu-s-laAlertRule-01-space25",
+            "description": "Muestra una alerta cada vez que el valor mínimo de % free space es menor del 25"
+          }          
+  
+  },
+
+        "laalertrule02": {
+          "value": 
+          {
+            "name": "sneu-s-laAlertRule-02-mem10",
+            "description": "Muestra una alerta cada vez que el valor promedio de % available memory es menor que 10"
+          }          
+  
+  }
+
+
+  }
+}
